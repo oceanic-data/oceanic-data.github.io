@@ -15,3 +15,5 @@ relative_url: images/oceanic.png
 ##### hello
 
 ###### hello
+
+![oceanic logo](/images/oceanic.png "Oceanic Logo")
