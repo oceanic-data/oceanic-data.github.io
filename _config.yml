@@ -1,12 +1,15 @@
+title: "Oceanic Data"
 theme: jekyll-theme-minimal
 logo: "/images/oceanic.png"
 
 nav:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Sample Posts"
-    url: /year-archive/
-  - title: "Sample Collections"
-    url: /collection-archive/
+    url: /about
+  - title: "Quake"
+    url: /quake
+  - title: "Codex"
+    url: /codex
+  - title: "Wikipedia Analysis"
+    url: /wikipedia
+  - title: "Resume"
+    url: /resume
