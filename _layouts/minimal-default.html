@@ -101,10 +101,10 @@
       {% endif %}
       {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
-      {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+      {% if s.nav %}<!-- include nav_list nav=s.nav -->{% endif %}
     {% endfor %}
     {% if page.sidebar.nav %}
-      {% include nav_list nav=page.sidebar.nav %}
+      <!-- include nav_list nav=page.sidebar.nav -->
     {% endif %}
   {% endif %}
   </div>
@@ -126,7 +126,7 @@
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label }}</h4></header>
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" %}
+              <!-- include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" -->
             </nav>
           </aside>
         {% endif %}
@@ -138,7 +138,7 @@
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
-        {% include page__taxonomy.html %}
+        <!-- include page__taxonomy.html -->
         {% if page.last_modified_at %}
           <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Updated:" }}</strong> <time datetime="{{ page.last_modified_at | date: "%Y-%m-%d" }}">{{ page.last_modified_at | date: "%B %d, %Y" }}</time></p>
         {% elsif page.date %}
@@ -146,10 +146,6 @@
         {% endif %}
       </footer>
     </div>
-
-    {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
-      {% include comments.html %}
-    {% endif %}
   </article>
 
 
