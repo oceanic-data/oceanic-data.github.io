@@ -1,0 +1,100 @@
+---
+---
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.15.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    
+    <!-- For all browsers -->
+    <link rel="stylesheet" href="/minimal.css">
+    
+    <!--[if IE ]>
+      <style>
+        /* old IE unsupported flexbox fixes */
+        .greedy-nav .site-title {
+          padding-right: 3em;
+        }
+        .greedy-nav button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+        }
+      </style>
+    <![endif]-->
+    
+    {% if site.head_scripts %}
+      {% for script in site.head_scripts %}
+        {% if script contains "://" %}
+          {% capture script_path %}{{ script }}{% endcapture %}
+        {% else %}
+          {% capture script_path %}{{ script | relative_url }}{% endcapture %}
+        {% endif %}
+        <script src="{{ script_path }}"></script>
+      {% endfor %}
+    {% endif %}
+
+  </head>
+
+  <body>
+
+    <!-- masthead -->
+    {% if site.logo contains "://" %}
+    {% capture logo_path %}{{ site.logo }}{% endcapture %}
+  {% else %}
+    {% capture logo_path %}{{ site.logo }}{% endcapture %}
+  {% endif %}
+  
+  <div class="masthead">
+    <div class="masthead__inner-wrap">
+      <div class="masthead__menu">
+        <nav id="site-nav" class="greedy-nav">
+          {% unless logo_path == empty %}
+            <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt=""></a>
+          {% endunless %}
+          <a class="site-title" href="{{ '/' | relative_url }}">{{ site.masthead_title | default: site.title }}</a>
+          <ul class="visible-links">
+            {%- for link in site.nav -%}
+              {%- if link.url contains '://' -%}
+                {%- assign url = link.url -%}
+              {%- else -%}
+                {%- assign url = link.url | relative_url -%}
+              {%- endif -%}
+              <li class="masthead__menu-item">
+                <a href="{{ url }}" {% if link.description %}title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- end masthead -->
+  
+    <div class="initial-content">
+      {{ content }}
+    </div>
+
+
+    <div class="page__footer">
+      <footer>
+
+        <div class="page__footer-follow">
+            &nbsp;
+        </div>
+          
+        <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} Todd Federman</div>
+
+      </footer>
+    </div>
+
+  </body>
+</html>
