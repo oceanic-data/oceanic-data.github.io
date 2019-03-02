@@ -4,7 +4,7 @@ layout: minimal-default
 permalink: "/cat/minimal-page-md"
 ---
 
-# minimal md page title
+### minimal subtitle
 
 content
 
