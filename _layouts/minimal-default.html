@@ -78,7 +78,57 @@
     </div>
   </div>
   <!-- end masthead -->
+
+  <div class="sidebar sticky">
   
+        <div class="author__avatar">
+                <img src="/images/oceanic.png" alt="Oceanic Data logo" itemprop="image">
+            </div>
+
+            <div class="author__content">
+              <h3 class="author__name" itemprop="name">Todd Federman</h3>
+                <p class="author__bio" itemprop="description">
+                  Experienced Python & data developer
+                </p>
+            </div>
+
+            <div class="author__urls-wrapper">
+              <ul class="author__urls social-icons">
+                  <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+                    <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Somerville, MA</span>
+                  </li>
+                  <li>
+                    <a href="mailto:tfederman@gmail.com">
+                      <meta itemprop="email" content="tfederman@gmail.com" />
+                      <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+                    </a>
+                  </li>
+              </ul>
+            </div>
+
+  {% if page.sidebar %}
+    {% for s in page.sidebar %}
+      {% if s.image %}
+        <img src=
+        {% if s.image contains "://" %}
+          "{{ s.image }}"
+        {% else %}
+          "{{ s.image | relative_url }}"
+        {% endif %}
+        alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+      {% endif %}
+      {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+      {% if s.text %}{{ s.text | markdownify }}{% endif %}
+      {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+    {% endfor %}
+    {% if page.sidebar.nav %}
+      {% include nav_list nav=page.sidebar.nav %}
+    {% endif %}
+  {% endif %}
+  </div>
+
+
+
     <div class="initial-content">
       {{ content }}
     </div>
@@ -86,13 +136,7 @@
 
     <div class="page__footer">
       <footer>
-
-        <div class="page__footer-follow">
-            &nbsp;
-        </div>
-          
         <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} Todd Federman</div>
-
       </footer>
     </div>
 
