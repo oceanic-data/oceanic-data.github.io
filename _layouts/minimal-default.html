@@ -16,21 +16,6 @@
     <!-- For all browsers -->
     <link rel="stylesheet" href="/minimal.css">
     
-    <!--[if IE ]>
-      <style>
-        /* old IE unsupported flexbox fixes */
-        .greedy-nav .site-title {
-          padding-right: 3em;
-        }
-        .greedy-nav button {
-          position: absolute;
-          top: 0;
-          right: 0;
-          height: 100%;
-        }
-      </style>
-    <![endif]-->
-    
     {% if site.head_scripts %}
       {% for script in site.head_scripts %}
         {% if script contains "://" %}
@@ -47,18 +32,12 @@
   <body>
 
     <!-- masthead -->
-    {% if site.logo contains "://" %}
-    {% capture logo_path %}{{ site.logo }}{% endcapture %}
-  {% else %}
-    {% capture logo_path %}{{ site.logo }}{% endcapture %}
-  {% endif %}
-  
   <div class="masthead">
     <div class="masthead__inner-wrap">
       <div class="masthead__menu">
         <nav id="site-nav" class="greedy-nav">
-          {% unless logo_path == empty %}
-            <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt=""></a>
+          {% unless site.logo == empty %}
+            <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ site.logo | relative_url }}" alt=""></a>
           {% endunless %}
           <a class="site-title" href="{{ '/' | relative_url }}">{{ site.masthead_title | default: site.title }}</a>
           <ul class="visible-links">
@@ -80,7 +59,7 @@
   <!-- end masthead -->
 
   <div class="initial-content">
-      <div id="main" role="main"></div>
+      <div id="main" role="main">
 
   <div class="sidebar sticky">
   
