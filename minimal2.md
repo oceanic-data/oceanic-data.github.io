@@ -14,4 +14,4 @@ content
 
 <img src="/static/photoswipe/default-skin/preloader.gif">
 
-<script src="/static/js/test.js"></script>
+<script src="/js/test.js"></script>
