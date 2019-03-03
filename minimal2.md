@@ -10,8 +10,34 @@ content
 
 content
 
-<strong>strong</strong>
+<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
-<img src="/static/photoswipe/default-skin/preloader.gif">
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+        <a href="/images/dharma1-large.png" itemprop="contentUrl" data-size="600x600">
+            <img src="/images/dharma1.png" itemprop="thumbnail" alt="Image description" />
+        </a>
+        <figcaption itemprop="caption description">caption</figcaption>
+    </figure>
 
-<script src="/js/test.js"></script>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+        <a href="/images/dharma2-large.png" itemprop="contentUrl" data-size="600x600">
+            <img src="/images/dharma2.png" itemprop="thumbnail" alt="Image description" />
+        </a>
+        <figcaption itemprop="caption description">caption</figcaption>
+    </figure>
+
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+        <a href="/images/dharma3-large.png" itemprop="contentUrl" data-size="600x600">
+            <img src="/images/dharma3.png" itemprop="thumbnail" alt="Image description" />
+        </a>
+        <figcaption itemprop="caption description">caption</figcaption>
+    </figure>
+
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+    initPhotoSwipeFromDOM('.my-gallery');
+});
+</script>
