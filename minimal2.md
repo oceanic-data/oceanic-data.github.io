@@ -9,3 +9,9 @@ permalink: "/cat/minimal-page-md"
 content
 
 content
+
+<strong>strong</strong>
+
+<img src="/static/photoswipe/default-skin/preloader.gif">
+
+<script src="/static/js/test.js"></script>
